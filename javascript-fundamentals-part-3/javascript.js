@@ -120,3 +120,27 @@ function replaceString(input = "", oldString = "", newString = "") {
 }
 let myString = "Steph is really hungry";
 console.log(replaceString(myString, "hungry", "TIRED"));
+//------------------------------------------------------------------------------------
+// Examples of return functions. I've thrown an error in squareNumber()
+function squareNumber(number) {
+    
+    if((typeof number === 'number') && !isNaN(number)) {
+        return number * number;
+    } else {
+        let e = new Error("Error. Parameter needs to be a number.");
+        e.name = "Error 693: Not a number";
+        throw e;
+    }
+}
+function exponentNumber(number, exponent) {
+    return number ** exponent; 
+}
+// Using try/catch exception handling. Decides whether to log the error or the message
+try {
+    let squareResult = squareNumber("10"); // throws error
+    console.log(`The square of 10 is: ${squareResult}`);
+} catch (e) {
+    console.error(`${e.name}\n${e.message}`);
+}
+console.log(`69 to the power of 3 is: ${exponentNumber(69, 3)}`);
+//-------------------------------------------------------------------------------------
