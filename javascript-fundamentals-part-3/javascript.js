@@ -144,3 +144,66 @@ try {
 }
 console.log(`69 to the power of 3 is: ${exponentNumber(69, 3)}`);
 //-------------------------------------------------------------------------------------
+
+// Function expressions:
+function sayHi() {
+    console.log("Greetings!");
+}
+let hello = sayHi;
+hello();
+
+let helloAgain = function() {
+    console.log("Greetings Again!!!");
+}
+helloAgain();
+console.log(helloAgain);
+
+// Callback functions:
+function chooseMessage(age, old, young) {
+    if(age >= 18) {
+        old();
+    } else {
+        young();
+    }
+}
+
+function oldMessage() {
+    console.log("You are old!");
+}
+function youngMessage(message) {
+    console.log(message);
+}
+chooseMessage(15, oldMessage, youngMessage.bind(null, "You're young!"));
+chooseMessage(12, oldMessage, () => youngMessage("You're super young"));
+
+// Arrow functions
+let sumNumbers = (first, second) => first + second;
+let coolNumbers = (first, second) => {
+    first++
+    second++
+    return (first + second) / 2;
+};
+console.log(sumNumbers(5, 10)); // return 15
+console.log(coolNumbers(5, 10)); // return 8.5
+
+// arrow function with ? operator
+let age = 10;
+let welcome = (+age >= 18) ?
+    () => console.log("Welcome adult!") :
+    () => console.log("Welcome child!");
+welcome();
+//-------------------------------------------------------------------
+// JAVASCRIPT CALL STACK
+
+// capitalize
+function capitalizeFirst(word){
+    return word.charAt(0).toUpperCase() + word.slice(1, word.length).toLowerCase();
+}
+console.log(capitalizeFirst("jayden"));
+
+function returnLastCharacter(word) {
+    return word.charAt(word.length - 1);
+}
+console.log(returnLastCharacter("hello"));
+
+
